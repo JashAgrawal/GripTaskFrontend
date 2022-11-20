@@ -7,7 +7,9 @@ function Transfer() {
   const [customers, setCustomers] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:3030/api/Auto/Get_All_records")
+      .get(
+        "https://web-production-f7b3.up.railway.app/api/Auto/Get_All_records"
+      )
       .then((res) => {
         console.log(res.data?.Data);
         setCustomers(res.data?.Data);

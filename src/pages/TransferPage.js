@@ -14,7 +14,11 @@ function TransferPage() {
   const [customers, setCustomers] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:3030/api/Auto/Get_By_Id_customers" + "/" + id)
+      .get(
+        "https://web-production-f7b3.up.railway.app/api/Auto/Get_By_Id_customers" +
+          "/" +
+          id
+      )
       .then((res) => {
         console.log(res.data?.Data);
         setDetails(res.data?.Data);
@@ -25,7 +29,9 @@ function TransferPage() {
   }, []);
   useEffect(() => {
     axios
-      .get("http://localhost:3030/api/Auto/Get_All_customers")
+      .get(
+        "https://web-production-f7b3.up.railway.app/api/Auto/Get_All_customers"
+      )
       .then((res) => {
         // console.log(res.data?.Data);
         setCustomers(res.data?.Data);
@@ -44,13 +50,16 @@ function TransferPage() {
         alert("Not Enough Balance");
       } else {
         axios
-          .post("http://localhost:3030/api/Auto/Update_customers", {
-            fromId: id,
-            toId: toId,
-            amount: parseInt(amount),
-            fromName: details.Name,
-            toName: toName,
-          })
+          .post(
+            "https://web-production-f7b3.up.railway.app/api/Auto/Update_customers",
+            {
+              fromId: id,
+              toId: toId,
+              amount: parseInt(amount),
+              fromName: details.Name,
+              toName: toName,
+            }
+          )
           .then((res) => {
             alert("Transaction Succesfull");
             // window.location.reload();
